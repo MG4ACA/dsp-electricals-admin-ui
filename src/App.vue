@@ -1,7 +1,5 @@
 <template>
- <div>
-  Hi GSP Electrical!! 
- </div>
+    <router-view></router-view> 
 </template>
 
 <script setup lang="ts">
