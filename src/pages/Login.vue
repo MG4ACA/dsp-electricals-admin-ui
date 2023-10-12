@@ -12,7 +12,7 @@
         </div>
         <div class="align-items-center gap-2">
           <label>Username</label>
-          <InputText v-model="userName" id="username" type="text" class="w-full" />
+          <InputText v-model="username" id="username" type="text" class="w-full" />
         </div>
         <div class="align-items-center gap-2">
           <label>Password</label>
@@ -33,11 +33,12 @@ import { useToast } from "primevue/usetoast";
 
 const toast = useToast();
 const loginStore = useLoginStore()
-const userName = ref('')
+const username = ref('')
 const password = ref('')
 
 const validateUserLogin = () => {
-  loginStore.validateUser( {userName: userName.value, password: password.value} )
+  const user = {'username': username.value, 'password': password.value}
+  loginStore.validateUser(user)
 
   if (loginStore.isUserLogged) {
     console.log('log___________', loginStore.isUserLogged);
@@ -48,7 +49,7 @@ const validateUserLogin = () => {
 }
 
 const clearInputFields = () => {
-  userName.value = null
+  username.value = null
   password.value = null
 }
 

@@ -1,25 +1,27 @@
 import { ref, onMounted } from 'vue'
 import { defineStore } from 'pinia'
+import { getAllUserss } from '../service/LoginService'
 
 export const useLoginStore = defineStore('loginStore', () => {
   const isUserLogged = ref(false)
+  const allUsers = ref([])
   const userName = ref()
   const password = ref()
 
-  onMounted(()=>{
-    const user = getAllUsers()
-    userName.value = user.userName
-    password.value = user.password
+  onMounted(async()=>{    
+    allUsers.value = await getAllUsers()
+    console.log('all users', allUsers.value);
   })
 
-  const validateUser = (user) => {
-    if (user.userName === userName.value && user.password === password.value) {
-      isUserLogged.value = true
-    }
-  }
+  const validateUser = (user) => {    
+    isUserLogged.value = allUsers.value.some(obj => {
+      return obj.username === user.username && obj.password === user.password;
+    });
+  };
 
-  const getAllUsers = () => {
-    return {userName: 'user', password: '1234'}
+
+  const getAllUsers = async () => {
+     return getAllUserss()
   }
 
   return { isUserLogged, validateUser }
