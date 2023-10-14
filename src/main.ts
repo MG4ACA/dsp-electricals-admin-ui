@@ -13,6 +13,8 @@ import InputText from 'primevue/inputtext'
 import Image from 'primevue/image';
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
+import Sidebar from 'primevue/sidebar';
+
 
 import App from './App.vue'
 import router from './router'
@@ -28,5 +30,6 @@ app.component('Button', Button)
 app.component('InputText', InputText)
 app.component('Image', Image)
 app.component('Toast', Toast)
+app.component('Sidebar', Sidebar)
 
 app.mount('#app')
