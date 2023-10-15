@@ -42,7 +42,7 @@ import Reports from './Reports.vue'
 import Stock from './Stock.vue'
 
 const routerArray=ref([])
-const subComponentName=ref('dashboard')
+const subComponentName=ref('Inventory')
 
 onMounted(() => {
     loadRouterArray()

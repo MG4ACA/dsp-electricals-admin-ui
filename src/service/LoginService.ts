@@ -3,9 +3,9 @@ import axios from 'axios';
 export async function getAllUserss() {
 
   try {
-    const response = await axios.get('http://localhost:8001/api/users'); // Replace with your actual endpoint
-    console.log('Response from Admin Service:', response.data);
-    return response.data;
+    // const response = await axios.get('http://localhost:8001/api/users'); // Replace with your actual endpoint
+    // console.log('Response from Admin Service:', response.data);
+    // return response.data;
     // Handle the response data as needed
   } catch (error) {
     console.error('Error sending the request:', error);
