@@ -20,14 +20,15 @@
                 <section v-if="subComponentName === 'Dashboard'" class="dashboard-component-container">
                     <div>this is dashboard</div>
                 </section>
-                <inventory v-if="subComponentName === 'Inventory'">
-                </inventory>
+                <Inventory v-if="subComponentName === 'Inventory'">
+                </Inventory>
                 <Order v-if="subComponentName === 'Order'">
 
                 </Order>
-                <invoices v-if="subComponentName === 'Invoices'"></invoices>
-                <reports v-if="subComponentName === 'Reports'"></reports>
-                <stock v-if="subComponentName === 'Stock'"></stock>
+                <Invoices v-if="subComponentName === 'Invoices'"></Invoices>
+                <Reports v-if="subComponentName === 'Reports'"></Reports>
+                <Stock v-if="subComponentName === 'Stock'"></Stock>
+                <Seller v-if="subComponentName === 'Seller'"></Seller>
             </section>
         </section>
     </main>
@@ -40,6 +41,7 @@ import Invoices from './Invoices.vue'
 import Order from './Order.vue'
 import Reports from './Reports.vue'
 import Stock from './Stock.vue'
+import Seller from './Seller.vue'
 
 const routerArray=ref([])
 const subComponentName=ref('Inventory')
@@ -49,7 +51,7 @@ onMounted(() => {
 })
 
 const loadRouterArray=() => {
-    routerArray.value=[{ name: "Dashboard" }, { name: "Order" }, { name: "Inventory" }, { name: "Invoices" }, { name: "Reports" }, { name: "Stock" }]
+    routerArray.value=[{ name: "Dashboard" }, { name: "Order" }, { name: "Inventory" }, { name: "Invoices" }, { name: "Reports" }, { name: "Stock" }, { name: "Seller" }]
 }
 const setSubComponent=(event) => {
     console.log('event log ________', event);

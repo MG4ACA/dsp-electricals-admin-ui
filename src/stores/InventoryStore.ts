@@ -4,8 +4,6 @@ import { save, removeProduct, getAll } from '../service/InventoryService'
 
 export const useInventoryStore = defineStore('inventoryStore', () => {
   const allProducts = ref()
-  const userName = ref()
-  const password = ref()
 
   onMounted(async()=>{    
     await getAllProducts()
