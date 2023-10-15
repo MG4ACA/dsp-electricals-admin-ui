@@ -27,8 +27,8 @@
 <script setup>
 import Image from 'primevue/image';
 import { ref } from 'vue'
-import {useLoginStore} from '../stores/login'
-import { useToast } from "primevue/usetoast";
+import {useLoginStore} from '../stores/LoginStore'
+import { useToast } from "primevue/usetoast"
 
 
 const toast = useToast();
@@ -67,3 +67,4 @@ const clearInputFields = () => {
   }
 }
 </style>
+../stores/LoginStore

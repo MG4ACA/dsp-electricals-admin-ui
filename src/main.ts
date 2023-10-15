@@ -4,6 +4,7 @@ import './assets/main.css'
 import 'primeicons/primeicons.css'
 import '../node_modules/primeflex/primeflex.css'
 
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
@@ -14,6 +15,12 @@ import Image from 'primevue/image';
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
 import Sidebar from 'primevue/sidebar';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import Row from 'primevue/row';   
+import AutoComplete from 'primevue/autocomplete';
 
 
 import App from './App.vue'
@@ -31,5 +38,11 @@ app.component('InputText', InputText)
 app.component('Image', Image)
 app.component('Toast', Toast)
 app.component('Sidebar', Sidebar)
+app.component('TabView', TabView)
+app.component('TabPanel', TabPanel)
+app.component('Row', Row)
+app.component('Column', Column)
+app.component('DataTable', DataTable)
+app.component('AutoComplete', AutoComplete)
 
 app.mount('#app')
