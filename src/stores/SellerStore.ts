@@ -5,22 +5,21 @@ import { save, removeSeller, getAll } from '../service/SellerService'
 export const useSellerStore = defineStore('sellerStore', () => {
   const allSellers = ref()
 
-  onMounted(async()=>{    
+  onMounted(async () => {
     await getAllSellers()
   })
 
-  const saveSellerDetails = (seller) => {   
+  const saveSellerDetails = (seller) => {
     const response = save(seller)
-    console.log('________________', response);
+    console.log('________________', response)
 
     return false
-  };
-
+  }
 
   const getAllSellers = async () => {
     allSellers.value = await getAll()
   }
-  
+
   const deleteSeller = async (sellerId) => {
     return removeSeller(sellerId)
   }

@@ -8,20 +8,19 @@ export const useLoginStore = defineStore('loginStore', () => {
   const userName = ref()
   const password = ref()
 
-  onMounted(async()=>{    
+  onMounted(async () => {
     allUsers.value = await getAllUsers()
-    console.log('all users', allUsers.value);
+    console.log('all users', allUsers.value)
   })
 
-  const validateUser = (user) => {    
-    isUserLogged.value = allUsers.value.some(obj => {
-      return obj.username === user.username && obj.password === user.password;
-    });
-  };
-
+  const validateUser = (user) => {
+    isUserLogged.value = allUsers.value.some((obj) => {
+      return obj.username === user.username && obj.password === user.password
+    })
+  }
 
   const getAllUsers = async () => {
-     return getAllUserss()
+    return getAllUserss()
   }
 
   return { isUserLogged, validateUser }

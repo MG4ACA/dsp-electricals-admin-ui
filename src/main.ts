@@ -4,28 +4,25 @@ import './assets/main.css'
 import 'primeicons/primeicons.css'
 import '../node_modules/primeflex/primeflex.css'
 
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import PrimeVue from 'primevue/config'
-import Button from "primevue/button"
+import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
-import Image from 'primevue/image';
+import Image from 'primevue/image'
 import ToastService from 'primevue/toastservice'
 import Toast from 'primevue/toast'
-import Sidebar from 'primevue/sidebar';
-import TabView from 'primevue/tabview';
-import TabPanel from 'primevue/tabpanel';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import Row from 'primevue/row';   
-import AutoComplete from 'primevue/autocomplete';
-import InputNumber from 'primevue/inputnumber';
-import Fieldset from 'primevue/fieldset';
-import Divider from 'primevue/divider';
-
-
+import Sidebar from 'primevue/sidebar'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
+import Row from 'primevue/row'
+import AutoComplete from 'primevue/autocomplete'
+import InputNumber from 'primevue/inputnumber'
+import Fieldset from 'primevue/fieldset'
+import Divider from 'primevue/divider'
 
 import App from './App.vue'
 import router from './router'
@@ -34,7 +31,7 @@ const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue);
+app.use(PrimeVue)
 app.use(ToastService)
 
 app.component('Button', Button)
