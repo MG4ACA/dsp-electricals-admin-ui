@@ -21,6 +21,10 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Row from 'primevue/row';   
 import AutoComplete from 'primevue/autocomplete';
+import InputNumber from 'primevue/inputnumber';
+import Fieldset from 'primevue/fieldset';
+import Divider from 'primevue/divider';
+
 
 
 import App from './App.vue'
@@ -44,5 +48,8 @@ app.component('Row', Row)
 app.component('Column', Column)
 app.component('DataTable', DataTable)
 app.component('AutoComplete', AutoComplete)
+app.component('InputNumber', InputNumber)
+app.component('Fieldset', Fieldset)
+app.component('Divider', Divider)
 
 app.mount('#app')

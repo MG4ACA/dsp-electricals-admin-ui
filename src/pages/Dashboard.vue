@@ -1,33 +1,39 @@
 <template>
     <main class="dashboard-main-container">
-        <section class="dashboard-header-container">hi</section>
+        <section class="dashboard-header-container">
+            <div class="dashboard-header-image-section h-full">
+                <img src="../assets/images/logo.png" alt="logo" class="image-container">
+
+            </div>
+        </section>
         <section class="dashboard-container flex">
             <section class="dashboard-sidebar-container">
-                <div class="dashboard-sidebar-container-inner">
-                    <div v-for="(router, index) in routerArray" :key="index" class="dashboard-sidebar-container-router"
-                        @click="setSubComponent(router.name)">
+                <div class="dashboard-sidebar-container-inner" >
+                    <div v-for="(router, index) in routerArray" :key="index" class="dashboard-sidebar-container-router" :class="{'click-effect': indexNumber === index}"
+                        @click="setSubComponent(router.name, index)">
                         {{ router.name }}
                     </div>
 
                 </div>
-                <div class="dashboard-sidebar-container-footer">
-                    <div class="dashboard-sidebar-container-router">
-                        Hi
+                <div class="dashboard-sidebar-container-footer" @click="signOut">
+                    <div class="dashboard-sidebar-container-logout">
+                        LOGOUT <i class="pi pi-sign-out ml-4"></i>
                     </div>
                 </div>
             </section>
             <section class="dashboard-content-container">
-                <section v-if="subComponentName === 'Dashboard'" class="dashboard-component-container">
+                <section v-if="subComponentName === 'DASHBOARD'" class="dashboard-component-container">
                     <div>this is dashboard</div>
                 </section>
-                <inventory v-if="subComponentName === 'Inventory'">
-                </inventory>
-                <Order v-if="subComponentName === 'Order'">
+                <Inventory v-if="subComponentName === 'INVENTORY'">
+                </Inventory>
+                <Order v-if="subComponentName === 'ORDER'">
 
                 </Order>
-                <invoices v-if="subComponentName === 'Invoices'"></invoices>
-                <reports v-if="subComponentName === 'Reports'"></reports>
-                <stock v-if="subComponentName === 'Stock'"></stock>
+                <Invoices v-if="subComponentName === 'INVOICES'"></Invoices>
+                <Reports v-if="subComponentName === 'REPORTS'"></Reports>
+                <Stock v-if="subComponentName === 'STOCK'"></Stock>
+                <Seller v-if="subComponentName === 'SUPPLIER'"></Seller>
             </section>
         </section>
     </main>
@@ -40,37 +46,27 @@ import Invoices from './Invoices.vue'
 import Order from './Order.vue'
 import Reports from './Reports.vue'
 import Stock from './Stock.vue'
+import Seller from './Seller.vue'
 
 const routerArray=ref([])
-const subComponentName=ref('Inventory')
+const subComponentName=ref('ORDER')
+const indexNumber=ref(1)
 
 onMounted(() => {
     loadRouterArray()
 })
 
 const loadRouterArray=() => {
-    routerArray.value=[{ name: "Dashboard" }, { name: "Order" }, { name: "Inventory" }, { name: "Invoices" }, { name: "Reports" }, { name: "Stock" }]
+    routerArray.value=[{ name: "DASHBOARD" }, { name: "ORDER" }, { name: "INVENTORY" }, { name: "INVOICES" }, { name: "REPORTS" }, { name: "STOCK" }, { name: "SUPPLIER" }]
 }
-const setSubComponent=(event) => {
-    console.log('event log ________', event);
+
+const setSubComponent=(event, index) => {
     subComponentName.value=event
-    // switch (event) {
-    //     case event === 'Dashboard':
-    //     subComponentName.value = event
-    //         break;
-    //     case event === '':
+    indexNumber.value = index
+}
 
-    //         break;
-    //     case event === '':
-
-    //         break;
-    //     case event === '':
-
-    //         break;
-
-    //     default:
-    //         break;
-    // }
+const signOut=() => {
+    
 }
 
 </script>
@@ -81,39 +77,72 @@ const setSubComponent=(event) => {
     height: 100vh;
 
     .dashboard-header-container {
-        background: bisque;
-        height: 15%;
+        background: #444444;
+        height: 11%;
+
+        .dashboard-header-image-section {
+            img {
+                height: 70%;
+                margin-top: 7px;
+                margin-left: 25px;
+
+            }
+        }
     }
 
     .dashboard-container {
-        height: 85%;
+        height: 89%;
+        background: #444444;
 
         .dashboard-content-container {
             background: rgb(123, 143, 208);
-            width: 80%;
+            width: 79.5%;
+    height: 99%;
+            border-radius: 5px;
         }
 
         .dashboard-sidebar-container {
-            background: rgb(164, 238, 79);
             width: 20%;
+            position: relative;
 
             .dashboard-sidebar-container-inner {
                 margin: 1rem;
             }
 
             .dashboard-sidebar-container-router {
+                color: white;
+    font-weight: 700;
                 padding: 0.25rem 0.5rem;
 
             }
 
             .dashboard-sidebar-container-router:hover {
-                background: rgb(205, 205, 200);
+                background: rgba(10, 243, 239, 0.5);
                 cursor: pointer;
+                border-radius: 5px;
 
             }
 
 
         }
+
+        .dashboard-sidebar-container-footer{
+            position: absolute;
+  bottom: 0;
+
+        }
+
+        .dashboard-sidebar-container-logout{
+            color: white;
+    font-weight: 700;
+                padding: 1.5rem;   
+        }
+    }
+
+    .click-effect{
+        background: rgba(0, 209, 205);
+                cursor: pointer;
+                border-radius: 5px;
     }
 
 
