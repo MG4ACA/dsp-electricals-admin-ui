@@ -6,7 +6,7 @@
                     <div class="seller-content-manage-div">
                         <div class="formgrid grid">
                             <div class="field col-12 md:col-12 mb-6">
-                                <label for="searchSeller">Search Seller</label>
+                                <label for="searchSeller">Search Supplier</label>
                                 <div class="card flex">
                                     <AutoComplete v-model="selectedSeller" optionLabel="name"
                                         :suggestions="filteredSeller" @complete="onSearch" @item-select="onSelectedSeller"
@@ -19,7 +19,7 @@
                                     class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
                             </div>
                             <div class="field col-12 md:col-7">
-                                <label for="sellerName">Seller Name</label>
+                                <label for="sellerName">Supplier Name</label>
                                 <input id="sellerName" type="text" v-model="sellerName"
                                     class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
                             </div>
@@ -39,8 +39,8 @@
                                     class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
                             </div>
                             <div class="form-button-set">
-                                <Button :label="isUpdateSeller ? 'Update' : 'Save'" @click="saveSellerDetails" />
-                                <Button label="Clear" @click="clearFields" />
+                                <Button class="btn-success" :label="isUpdateSeller ? 'Update' : 'Save'" @click="saveSellerDetails" />
+                                <Button class="btn-cancel" label="Clear" @click="clearFields" />
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@ const clearFields=() => {
         }
 
         .p-tabview-panels {
-            height: 77vh;
+            height: 80.5vh;
         }
 
         .form-button-set {

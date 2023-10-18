@@ -9,11 +9,13 @@ export const useInventoryStore = defineStore('inventoryStore', () => {
     await getAllProducts()
   })
 
-  const saveProductDetails = (product) => {   
+  const saveProductDetails = async(product) => {   
     const response = save(product)
+    await getAllProducts()
+
     console.log('________________', response);
 
-    return false
+    return true
   };
 
 

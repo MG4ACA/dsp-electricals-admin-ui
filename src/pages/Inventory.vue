@@ -29,8 +29,8 @@
                                     class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
                             </div>
                             <div class="form-button-set">
-                                <Button :label="isUpdateProduct ? 'Update' : 'Save'" @click="saveProductDetails" />
-                                <Button label="Clear" @click="clearFields" />
+                                <Button class="btn-success" :label="isUpdateProduct ? 'Update' : 'Save'" @click="saveProductDetails" />
+                                <Button class="btn-cancel" label="Clear" @click="clearFields" />
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@ onMounted(async () => {
 })
 
 
-const saveProductDetails=() => {
+const saveProductDetails=async() => {
     const product={
         code: productCode.value,
         name: productName.value,
@@ -109,14 +109,20 @@ const saveProductDetails=() => {
         state: true
     }
 
-    const res=inventoryStore.saveProductDetails(product)
-    console.log('01______________', res);
+    const res= await inventoryStore.saveProductDetails(product)
 
     if(res) {
         toast.add({ severity: 'success', summary: TOAST_MESSAGES.SUCCESS.TITLE, detail: 'Product saved successfully', life: 3000 });
+        products.value=await inventoryStore.allProducts
+        console.log('01______________', products.value);
+
+
     } else {
         toast.add({ severity: 'error', summary: TOAST_MESSAGES.ERROR.TITLE, detail: TOAST_MESSAGES.ERROR.DETAIL, life: 3000 });
     }
+    clearFields()
+
+    
 }
 
 const getFormattedDate=(date) => {
@@ -174,7 +180,7 @@ const clearFields=() => {
         }
 
         .p-tabview-panels {
-            height: 77vh;
+            height: 80.5vh;
         }
 
         .form-button-set {

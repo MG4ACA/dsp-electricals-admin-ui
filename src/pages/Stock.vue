@@ -56,8 +56,8 @@
                                 </div>
                             </div>
                             <div class="form-button-set">
-                                <Button :label="isUpdateStock ? 'Update' : 'Save'" @click="saveStockDetails" />
-                                <Button label="Clear" @click="clearFields" />
+                                <Button class="btn-success" :label="isUpdateStock ? 'Update' : 'Save'" @click="saveStockDetails" />
+                                <Button class="btn-cancel" label="Clear" @click="clearFields" />
                             </div>
                         </div>
                     </div>
@@ -65,9 +65,11 @@
                 <TabPanel header="Inventory">
                     <DataTable :value="stocks" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]"
                         tableStyle="min-width: 50rem">
-                        <Column field="code" header="Code" style="width: 15%"></Column>
-                        <Column field="name" header="Name" style="width: 25%"></Column>
-                        <Column field="description" header="Description" style="width: 30%"></Column>
+                        <Column field="companyName" header="Company Name" style="width: 20%"></Column>
+                        <Column field="productName" header="Product Name" style="width: 20%"></Column>
+                        <Column field="qty" header="Quantity" style="width: 10%"></Column>
+                        <Column field="price" header="Buying Price" style="width: 10%"></Column>
+                        <Column field="description" header="Description" style="width: 25%"></Column>
                         <Column field="addedDate" header="Created Date" style="width: 15%"></Column>
                         <Column style="width: 15%">
                             <template #body="{ data }">
@@ -240,7 +242,7 @@ const clearFields=() => {
         }
 
         .p-tabview-panels {
-            height: 77vh;
+            height: 80.5vh;
         }
 
         .form-button-set {
