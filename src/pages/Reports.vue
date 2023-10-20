@@ -2,10 +2,6 @@
   <div>Hi this is Reports</div>
 </template>
 
-<script setup>
+<script setup></script>
 
-</script>
-
-<style>
-
-</style>
+<style></style>

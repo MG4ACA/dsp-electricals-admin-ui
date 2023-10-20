@@ -25,25 +25,29 @@
 </template>
 
 <script setup>
-import Image from 'primevue/image';
+import Image from 'primevue/image'
 import { ref } from 'vue'
-import {useLoginStore} from '../stores/LoginStore'
-import { useToast } from "primevue/usetoast"
+import { useLoginStore } from '../stores/LoginStore'
+import { useToast } from 'primevue/usetoast'
 
-
-const toast = useToast();
+const toast = useToast()
 const loginStore = useLoginStore()
 const username = ref('')
 const password = ref('')
 
 const validateUserLogin = () => {
-  const user = {'username': username.value, 'password': password.value}
+  const user = { username: username.value, password: password.value }
   loginStore.validateUser(user)
 
   if (loginStore.isUserLogged) {
-    console.log('log___________', loginStore.isUserLogged);
+    console.log('log___________', loginStore.isUserLogged)
   } else {
-    toast.add({ severity: 'error', summary: 'Wrong credentials', detail: 'Username Password does not match..!', life: 3000 });
+    toast.add({
+      severity: 'error',
+      summary: 'Wrong credentials',
+      detail: 'Username Password does not match..!',
+      life: 3000
+    })
   }
   clearInputFields()
 }
@@ -52,8 +56,6 @@ const clearInputFields = () => {
   username.value = null
   password.value = null
 }
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -61,8 +63,11 @@ const clearInputFields = () => {
   display: flex;
   width: 400px;
 
-  .right-section{
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  .right-section {
+    box-shadow:
+      rgba(17, 17, 26, 0.1) 0px 1px 0px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px,
+      rgba(17, 17, 26, 0.1) 0px 16px 48px;
     width: 100%;
   }
 }

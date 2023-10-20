@@ -5,7 +5,7 @@
   font-weight: normal;
 }
 
-.p-button{
+.p-button {
   height: 2.5rem;
   background: #00d1cd !important;
   border: 1px solid #00d1cd;
@@ -17,28 +17,26 @@
   border: 1px solid #00d1cd;
 }
 
-.p-button:hover{
+.p-button:hover {
   height: 2.5rem;
   background: #05c4c1 !important;
   border: 1px solid #10cdca;
 }
 
-td .p-button{
+td .p-button {
   color: #00d1cd !important;
   background: #ffffff !important;
   border: 0;
-
 }
 
-td .p-button:hover{
+td .p-button:hover {
   color: #0e9997 !important;
   background: #ffffff !important;
   border: 0;
 }
 
-
 .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
-  box-shadow: none !important; 
+  box-shadow: none !important;
 }
 
 .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
@@ -56,16 +54,19 @@ td .p-button:hover{
   box-shadow: 0 0 0 0.2rem #aef4f4;
 }
 
-.primary-text-color{
+.primary-text-color {
   color: #00d1cd !important;
 }
-.p-autocomplete{
+.p-autocomplete {
   height: 2.2rem;
 }
 
 .p-divider.p-divider-horizontal:before {
   border-top: 2px #00d1cd;
-  
+}
+
+.input-fields {
+  height: 35px;
 }
 
 a,
@@ -81,7 +82,7 @@ a,
   }
 }
 
-.p-tabview-nav-content{
+.p-tabview-nav-content {
   border-radius: 5px;
 }
 
@@ -95,16 +96,14 @@ a,
     display: flex;
     grid-template-columns: 1fr 1fr;
   }
-
-
 }
 
-.btn-success{
+.btn-success {
   width: 155px;
-    height: 35px;
+  height: 35px;
 }
 
-.btn-cancel{
+.btn-cancel {
   width: 155px;
-    height: 35px;
+  height: 35px;
 }
